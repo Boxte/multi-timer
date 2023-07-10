@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/multi-timer/static/css/main.073c9b0a.css",
+    "main.js": "/multi-timer/static/js/main.b143d478.js",
+    "static/js/787.7f40511b.chunk.js": "/multi-timer/static/js/787.7f40511b.chunk.js",
+    "service-worker.js": "/multi-timer/service-worker.js",
+    "static/media/logo.svg": "/multi-timer/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
+    "index.html": "/multi-timer/index.html",
+    "main.073c9b0a.css.map": "/multi-timer/static/css/main.073c9b0a.css.map",
+    "main.b143d478.js.map": "/multi-timer/static/js/main.b143d478.js.map",
+    "787.7f40511b.chunk.js.map": "/multi-timer/static/js/787.7f40511b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.b143d478.js"
+  ]
+}
