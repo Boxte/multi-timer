@@ -37,6 +37,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "git-branch-is main && npm run deploy"
+    }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -56,6 +61,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "git-branch-is": "^4.0.0",
+    "husky": "^8.0.3"
   }
 }
