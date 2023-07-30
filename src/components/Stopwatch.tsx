@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 
 const Stopwatch = (props: any) => {
-  const [centiSeconds, setCentiSeconds] = useState(0);
   const [isPaused, setIsPaused] = useState(true);
   const [isActive, setIsActive] = useState(false);
-  const [displayedTime, setDisplayedTime] = useState("0s 00");
   const [_time, setTime] = useState({
     centiseconds: 0,
+    secs: 0,
     displayedTime: "0s 00",
   });
 
@@ -16,15 +15,18 @@ const Stopwatch = (props: any) => {
     if (isActive && isPaused === false) {
       interval = setInterval(() => {
         setTime((t) => {
-          const newCenti = t.centiseconds + 10;
-          let secs = Math.floor(newCenti * 0.001);
+          let newCenti = t.centiseconds + 1;
+          let newSecs = t.secs;
+          if (newCenti === 100) {
+            newSecs += 1;
+            newCenti = 0;
+          }
           return {
             centiseconds: newCenti,
-            displayedTime: `${secs}s ${newCenti}`,
+            secs: newSecs,
+            displayedTime: `${newSecs}s ${newCenti}`,
           };
         });
-        // setDisplayedTime(`${secs}s ${newCenti}`);
-        // setCentiSeconds(newCenti);
       }, 10);
     } else {
       clearInterval(interval);
@@ -47,9 +49,9 @@ const Stopwatch = (props: any) => {
     setIsActive(false);
     setTime({
       centiseconds: 0,
+      secs: 0,
       displayedTime: "",
     });
-    //setCentiSeconds(0);
   };
 
   return (
