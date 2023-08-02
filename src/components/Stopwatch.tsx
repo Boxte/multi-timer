@@ -45,6 +45,10 @@ const Stopwatch = (props: any) => {
     setIsPaused(!isPaused);
   };
 
+  const handleStop = () => {
+    setIsPaused(true);
+  };
+
   const handleReset = () => {
     setIsActive(false);
     setTime({
@@ -56,16 +60,35 @@ const Stopwatch = (props: any) => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      Stopwatch
+      <h1 className="text-3xl font-bold">Stopwatch</h1>
+
       <p></p>
-      <div className="flex-none flex-row">
-        <p className="w-1/2">{_time.secs}s</p>
-        <p className="w-1/2">{_time.centiseconds}</p>
+      <div className="flex flex-row">
+        <div className="grow" />
+        <p className="w-16">{_time.secs}s</p>
+        <p className="w-16">{_time.centiseconds}</p>
+        <div className="grow" />
       </div>
-      <button onClick={() => handleStart()}>START</button>
-      <button onClick={() => handlePauseResume()}>STOP</button>
-      <button onClick={() => handleReset()}>RESET</button>
+      <div className="flex-none flex-row space-x-4">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleStart()}
+        >
+          {isActive ? "RESUME" : "START"}
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleStop()}
+        >
+          STOP
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => handleReset()}
+        >
+          RESET
+        </button>
+      </div>
     </div>
   );
 };
