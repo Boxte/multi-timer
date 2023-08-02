@@ -24,7 +24,7 @@ const Stopwatch = (props: any) => {
           return {
             centiseconds: newCenti,
             secs: newSecs,
-            displayedTime: `${newSecs}s ${newCenti}`,
+            displayedTime: `${newSecs}s ${String(newCenti).padStart(2, "0")}`,
           };
         });
       }, 10);
@@ -56,9 +56,13 @@ const Stopwatch = (props: any) => {
 
   return (
     <div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       Stopwatch
       <p></p>
-      <p>{_time.displayedTime}</p>
+      <div className="flex-none flex-row">
+        <p className="w-1/2">{_time.secs}s</p>
+        <p className="w-1/2">{_time.centiseconds}</p>
+      </div>
       <button onClick={() => handleStart()}>START</button>
       <button onClick={() => handlePauseResume()}>STOP</button>
       <button onClick={() => handleReset()}>RESET</button>
